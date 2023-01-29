@@ -36,7 +36,9 @@ module.exports = function imageProcessor(filename) {
                 });
                 monochromeWorker.on('message', (message) => {
                     monochromeWorkerFinished = true;
-                    resolve('monochromeWorker finished processing');
+                    if(resizeWorkerFinished){
+                        resolve('monochromeWorker finished processing');
+                    }
                 });
                 monochromeWorker.on('error', (error) => {
                     reject(new Error(error.message));
