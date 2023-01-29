@@ -10,7 +10,11 @@ router.post('/upload', upload.single('photo'), (request, response) => {
     } else {
         response.status(201).json({success: true});
     };
-})
+});
+
+router.get('/photo-viewer', (request, response) => {
+    response.sendFile(photoPath);
+});
 
 function filename(request, file, callback) {
     callback(null, file.originalname);
