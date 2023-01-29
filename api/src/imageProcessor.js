@@ -1,6 +1,7 @@
 const path = require('path');
 const {Worker, isMainThread} = require('worker_threads');
-const pathToMonochromeWorker = path.resolve(__dirname, 'monchromeWorker.js');
+const pathToResizeWorker = path.resolve(__dirname, 'resizeWorker.js');
+const pathToMonochromeWorker = path.resolve(__dirname, 'monochromeWorker.js');
 
 function uploadPathResolver(filename) {
     return path.resolve(__dirname, '../uploads', filename);
